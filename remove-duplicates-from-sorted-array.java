@@ -55,3 +55,28 @@ Constraints:
 nums is sorted in non-decreasing order
 
 */
+
+
+// SOLUTION
+
+// 1. Check if the current and the next element are equal
+// 2. If they are, we will skip the next element ans will continue the procedure as long as we encounter the duplicates
+// 3. If the elements are not duplicate, we will place the next (different) element next to the current element.
+
+class Solution {
+        public int removeDuplicates(int[] nums) {
+            // Length of the updated array
+            int count = 0;
+            // Loop for all the elements in the array
+            for (int i = 0; i < nums.length; i++) {
+                // If the current element is equal to the next element, we skip
+                if(i < nums.length - 1 && nums[i] == nums[i+1]) {
+                    continue;
+                }
+                // We will update the array in place
+                nums[count] = nums[i];
+                count++;
+            }
+            return count;
+    }
+}

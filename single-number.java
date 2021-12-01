@@ -15,6 +15,7 @@
 
 // *A Hashset is a collection of items where every item is unique, and it is found in the java.util package*
 
+
 class Solution {
     public int singleNumber(int[] nums){
         // Put them in a hashset
