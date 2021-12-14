@@ -27,29 +27,18 @@ Constraints:
 
 /*Borrowing from: https://www.geeksforgeeks.org/array-rotation/*/
 
+//Using an extra array)
+//We use an extra array in which we place every element of the array at its correct position 
+//i.e. the number at index ii in the original array is placed at the index (i + k) { length of array}(i+k)% length of array. 
+//Then, we copy the new array to the original one
 class Solution {
-    public void rotate(int[] nums, int k) {
-        /* Function to left rotate arr[] of size n by d*/
-        void leftRotate(int arr[], int d, int n) {
-            for (int i = 0; i < d; i++){
-                leftRotatebyOne(arr, n);
-            }
-        }
-
-        void leftRotatebyOne(int arr[], int n){
-            int i, temp;
-            temp = arr[0];
-            for (i = 0; i < n - 1; i++) {
-                arr[i] = arr[i + 1];
-                arr[n-1] = temp;
-            }
-        }
-
-        /* Utility function to print an array */
-        void printArray(int arr[], int n) {
-            for (int i = 0; i < n; i++){
-                System.out.print(arr[i] + " ");
-            }
-        }
+  public void rotate(int[] nums, int k) {
+    int[] a = new int[nums.length];
+    for (int i = 0; i < nums.length; i++) {
+      a[(i + k) % nums.length] = nums[i];
     }
+    for (int i = 0; i < nums.length; i++) {
+      nums[i] = a[i];
+    }
+  }
 }
